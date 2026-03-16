@@ -10,7 +10,6 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-28 px-6 bg-crypt relative overflow-hidden">
-      {/* Large section number watermark */}
 
       <div className="max-w-6xl mx-auto relative z-10">
         <SectionHeader eyebrow="04 — What I've Built" title="Projects" />
@@ -22,22 +21,14 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="group relative bg-void border border-bone/10 rounded-lg p-8 mb-6 hover:border-brew/40 transition-colors overflow-hidden"
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.boxShadow =
-                "0 0 40px rgba(107, 203, 119, 0.1)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.boxShadow = "none";
-            }}
+            className="card-glow-featured group relative bg-void border border-bone/10 rounded-lg p-8 mb-6 hover:border-brew/40 transition-colors overflow-hidden"
           >
             {/* Top accent line */}
-            <div className="absolute top-0 left-0 w-0 h-[2px] bg-brew group-hover:w-full transition-all duration-600" />
+            <div className="absolute top-0 left-0 w-0 h-[2px] bg-brew group-hover:w-full transition-all duration-500" />
 
             {/* Ghost project name watermark */}
             <span
-              className="absolute pointer-events-none select-none font-cinzel font-black text-bone/[0.03] leading-none whitespace-nowrap"
-              style={{ fontSize: "clamp(4rem, 12vw, 9rem)", bottom: "-0.15em", right: "-0.05em" }}
+              className="text-watermark-md absolute bottom-[-0.15em] right-[-0.05em] pointer-events-none select-none font-cinzel font-black text-bone/[0.03] leading-none whitespace-nowrap"
               aria-hidden
             >
               {featured.name}

@@ -15,8 +15,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative py-28 px-6 bg-void overflow-hidden"
-      style={{ clipPath: "polygon(0 0, 100% 0, 100% 92%, 0 100%)" }}
+      className="relative py-28 px-6 bg-void overflow-hidden clip-angled-bottom"
     >
 
       <div className="max-w-6xl mx-auto relative z-10">

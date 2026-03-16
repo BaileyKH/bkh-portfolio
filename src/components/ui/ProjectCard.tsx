@@ -16,20 +16,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
       whileHover={{ y: -4 }}
-      className="group relative bg-void border border-bone/10 rounded-lg p-6 flex flex-col gap-4 transition-colors hover:border-brew/40"
-      style={{
-        boxShadow: "0 0 0 0 rgba(107, 203, 119, 0)",
-        transition:
-          "box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease",
-      }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.boxShadow =
-          "0 0 24px rgba(107, 203, 119, 0.12)";
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.boxShadow =
-          "0 0 0 0 rgba(107, 203, 119, 0)";
-      }}
+      className="card-glow group relative bg-void border border-bone/10 rounded-lg p-6 flex flex-col gap-4 hover:border-brew/40"
     >
       {/* Top accent line */}
       <div className="absolute top-0 left-0 w-0 h-[2px] bg-brew group-hover:w-full transition-all duration-500" />

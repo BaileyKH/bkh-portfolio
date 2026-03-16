@@ -74,8 +74,16 @@ export const projects: Project[] = [
   {
     name: "Dust to Dreams",
     description:
-      "Production multiplayer gaming server scaling to 223 registered players with 50+ daily active users. Configured 200+ Lua-based server resources including economy systems, housing mechanics, job frameworks, and law enforcement systems. Monetization through tiered subscriptions; 62+ new player registrations weekly.",
+      "Production multiplayer gaming server scaling to 700+ registered players with 60+ daily active users. Configured 200+ Lua-based server resources including economy systems, housing mechanics, job frameworks, and law enforcement systems. Monetization through tiered subscriptions; 62+ new player registrations weekly.",
     tech: ["Lua", "MariaDB", "Server Infra", "Economy Systems"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    name: "Protecly",
+    description:
+      "Protecly is a cutting-edge cybersecurity platform dedicated to ensuring individuals and organizations can combat the growing threat of cyber attacks. The mission is to enhance cybersecurity awareness and provide reliable tools to identify and prevent phishing attempts, helping users stay one step ahead of threat actors",
+    tech: ["JavaScript", "React", "Tailwind"],
     liveUrl: "#",
     githubUrl: "#",
   },

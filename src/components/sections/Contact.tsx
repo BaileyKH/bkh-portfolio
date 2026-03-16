@@ -15,24 +15,9 @@ export default function Contact() {
   };
 
   return (
-    <section
-      id="contact"
-      className="py-28 px-6 bg-depths relative overflow-hidden"
-    >
-      {/* Stronger atmospheric background */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 70% at 50% 90%, rgba(92,34,128,0.2) 0%, transparent 65%), radial-gradient(ellipse 50% 40% at 20% 20%, rgba(75,139,90,0.06) 0%, transparent 60%)",
-        }}
-      />
-
-      {/* Scan line */}
-      <div
-        className="scan-line absolute left-0 right-0 h-px pointer-events-none"
-        style={{ background: "linear-gradient(to right, transparent, rgba(75,139,90,0.06), transparent)" }}
-      />
+    <section id="contact" className="py-28 px-6 bg-depths relative overflow-hidden">
+      <div className="bg-contact-glow absolute inset-0 pointer-events-none" />
+      <div className="scan-line bg-scan-gradient absolute left-0 right-0 h-px pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative z-10">
         <SectionHeader eyebrow="05 — Let's Talk" title="Get in Touch" />
@@ -52,14 +37,13 @@ export default function Contact() {
             that needs a steady hand — I&apos;m listening.
           </p>
 
-          {/* Email with copy — drip underline on hover */}
+          {/* Email with copy */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={copyEmail}
-              className="group relative flex items-center gap-3 bg-crypt border border-bone/20 hover:border-brew/50 rounded-lg px-6 py-4 transition-all overflow-hidden"
-              style={{
-                boxShadow: copied ? "0 0 24px rgba(107, 203, 119, 0.25)" : "none",
-              }}
+              className={`group relative flex items-center gap-3 bg-crypt border border-bone/20 hover:border-brew/50 rounded-lg px-6 py-4 transition-all overflow-hidden ${
+                copied ? "shadow-email-copied" : ""
+              }`}
             >
               {/* Drip underline */}
               <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-brew group-hover:w-full transition-all duration-500" />
@@ -98,16 +82,6 @@ export default function Contact() {
             >
               <span className="w-1.5 h-1.5 rounded-full bg-brew/50 group-hover:bg-brew transition-colors" />
               GitHub
-            </a>
-            <div className="w-px h-4 bg-bone/20" />
-            <a
-              href={personalInfo.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-sm text-mist hover:text-brew transition-colors flex items-center gap-2 group"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-brew/50 group-hover:bg-brew transition-colors" />
-              Website
             </a>
           </div>
         </motion.div>

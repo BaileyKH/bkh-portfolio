@@ -23,17 +23,17 @@ export default function TimelineEntry({
       className="relative grid md:grid-cols-[1fr_auto_1fr] gap-0 md:gap-6 items-start mb-16"
     >
       {/* Left content (even entries) or spacer */}
-      <div className={`${isEven ? "md:text-right" : "hidden md:block"}`}>
+      <div className={isEven ? "md:text-right" : "hidden md:block"}>
         {isEven && <EntryContent experience={experience} align="right" />}
       </div>
 
-      {/* Center timeline */}
+      {/* Center timeline dot */}
       <div className="hidden md:flex flex-col items-center">
         <div className="w-3 h-3 rounded-full bg-brew border-2 border-glow mt-2 glow-pulse z-10" />
       </div>
 
       {/* Right content (odd entries) or spacer */}
-      <div className={`${!isEven ? "" : "hidden md:block"}`}>
+      <div className={!isEven ? "" : "hidden md:block"}>
         {!isEven && <EntryContent experience={experience} align="left" />}
       </div>
 
@@ -41,14 +41,7 @@ export default function TimelineEntry({
       <div className="md:hidden col-span-full flex gap-4">
         <div className="flex flex-col items-center">
           <div className="w-2.5 h-2.5 rounded-full bg-brew border-2 border-glow mt-1.5 flex-shrink-0" />
-          <div
-            className="w-px flex-1 mt-1"
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(to bottom, #4b8b5a 0, #4b8b5a 6px, transparent 6px, transparent 12px)",
-              opacity: 0.4,
-            }}
-          />
+          <div className="timeline-dashed-mobile opacity-40 w-px flex-1 mt-1" />
         </div>
         <div className="flex-1 pb-6">
           <EntryContent experience={experience} align="left" />
@@ -65,7 +58,6 @@ function EntryContent({
   experience: Experience;
   align: "left" | "right";
 }) {
-  // Extract just the start year for the watermark
   const year = experience.period.match(/\d{4}/)?.[0] ?? "";
 
   return (
@@ -76,13 +68,9 @@ function EntryContent({
     >
       {/* Ghost company watermark */}
       <span
-        className="absolute pointer-events-none select-none font-cinzel font-black text-bone/[0.04] leading-none whitespace-nowrap"
-        style={{
-          fontSize: "clamp(3rem, 10vw, 7rem)",
-          bottom: "-0.1em",
-          right: align === "right" ? "auto" : "-0.1em",
-          left: align === "right" ? "-0.1em" : "auto",
-        }}
+        className={`text-watermark-sm absolute bottom-[-0.1em] pointer-events-none select-none font-cinzel font-black text-bone/[0.04] leading-none whitespace-nowrap ${
+          align === "right" ? "left-[-0.1em]" : "right-[-0.1em]"
+        }`}
         aria-hidden
       >
         {experience.company}
@@ -92,42 +80,33 @@ function EntryContent({
       <div className="absolute left-0 top-0 w-[2px] h-0 bg-brew group-hover:h-full transition-all duration-500 rounded-l-lg" />
 
       {/* Year badge */}
-      <div
-        className={`flex items-center gap-2 mb-3 ${align === "right" ? "md:justify-end" : ""}`}
-      >
+      <div className={`flex items-center gap-2 mb-3 ${align === "right" ? "md:justify-end" : ""}`}>
         <span className="font-mono text-xs text-mist/50 border border-bone/10 px-2 py-0.5 rounded">
           {year}
         </span>
       </div>
 
-      <div
-        className={`flex flex-wrap items-baseline gap-2 mb-1 ${align === "right" ? "md:justify-end" : ""}`}
-      >
+      <div className={`flex flex-wrap items-baseline gap-2 mb-1 ${align === "right" ? "md:justify-end" : ""}`}>
         <h3 className="font-cinzel text-lg font-bold text-brew">
           {experience.company}
         </h3>
         <span className="font-mono text-xs text-mist">{experience.location}</span>
       </div>
-      <div
-        className={`flex flex-wrap gap-2 mb-4 ${align === "right" ? "md:justify-end" : ""}`}
-      >
+
+      <div className={`flex flex-wrap gap-2 mb-4 ${align === "right" ? "md:justify-end" : ""}`}>
         <span className="font-mono text-sm text-bone">{experience.role}</span>
         <span className="font-mono text-xs text-mist self-center">
           · {experience.period}
         </span>
       </div>
-      <ul
-        className={`space-y-2 ${align === "right" ? "md:text-right" : ""}`}
-      >
+
+      <ul className={`space-y-2 ${align === "right" ? "md:text-right" : ""}`}>
         {experience.bullets.map((bullet, i) => (
           <li
             key={i}
-            className="text-mist text-sm leading-relaxed flex gap-2 items-start"
-            style={
-              align === "right"
-                ? { flexDirection: "row-reverse", textAlign: "right" }
-                : {}
-            }
+            className={`text-mist text-sm leading-relaxed flex gap-2 items-start ${
+              align === "right" ? "flex-row-reverse text-right" : ""
+            }`}
           >
             <span className="text-brew mt-1.5 flex-shrink-0 text-xs">▸</span>
             <span>{bullet}</span>

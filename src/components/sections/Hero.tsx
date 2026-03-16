@@ -15,12 +15,6 @@ export default function Hero() {
   const [wordIndex, setWordIndex] = useState(0);
   const [displayed, setDisplayed] = useState("");
   const [phase, setPhase] = useState<"typing" | "pause" | "erasing">("typing");
-  const [ruleSweep, setRuleSweep] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setRuleSweep(true), 1100);
-    return () => clearTimeout(t);
-  }, []);
 
   useEffect(() => {
     const word = TYPED_WORDS[wordIndex];
@@ -55,45 +49,9 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-void"
     >
       {/* Atmospheric fog layers */}
-      <div
-        className="fog-1 absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 30% 50%, rgba(75,139,90,0.12) 0%, transparent 70%)",
-        }}
-      />
-      <div
-        className="fog-2 absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 70% at 70% 40%, rgba(92,34,128,0.1) 0%, transparent 65%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 50% 80% at 50% 100%, rgba(20,13,31,0.8) 0%, transparent 70%)",
-        }}
-      />
-
-      {/* Grid overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.025]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(75,139,90,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(75,139,90,0.8) 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
-        }}
-      />
-
-      {/* Large decorative // glyph — background */}
-      <div
-        className="absolute pointer-events-none select-none font-cinzel font-black text-brew/[0.04] leading-none"
-        style={{ fontSize: "clamp(12rem, 35vw, 28rem)", top: "5%", left: "-5%" }}
-        aria-hidden
-      >
-        //
-      </div>
+      <div className="fog-1 bg-hero-fog-green absolute inset-0 pointer-events-none" />
+      <div className="fog-2 bg-hero-fog-purple absolute inset-0 pointer-events-none" />
+      <div className="bg-hero-fog-bottom absolute inset-0 pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
@@ -117,10 +75,7 @@ export default function Hero() {
               {i === 0 ? (
                 word
               ) : (
-                <span
-                  className="text-transparent"
-                  style={{ WebkitTextStroke: "1px rgba(232,232,232,0.45)" }}
-                >
+                <span className="text-transparent text-stroke-hero">
                   {word}
                 </span>
               )}
@@ -129,28 +84,19 @@ export default function Hero() {
         </motion.h1>
 
         {/* Animated rule sweep under name */}
-        <div className="h-px mb-6 overflow-hidden">
-          {ruleSweep && (
-            <div
-              className="rule-sweep h-full bg-brew"
-              style={{ opacity: 0 }}
-            />
-          )}
-          <motion.div
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={{ scaleX: 1, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
-            style={{ originX: 0 }}
-            className="h-px bg-brew w-full"
-          />
-        </div>
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
+          className="origin-left h-px bg-brew w-full mb-6"
+        />
 
-        {/* Typing animation with ▮ block cursor */}
+        {/* Typing animation */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.1 }}
-          className="font-mono text-lg md:text-xl text-mist mb-8 h-8 flex items-center justify-center gap-0"
+          className="font-mono text-lg md:text-xl text-mist mb-8 h-8 flex items-center justify-center"
         >
           <span className="text-brew mr-2">▮</span>
           <span>{displayed}</span>
