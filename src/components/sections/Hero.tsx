@@ -48,12 +48,10 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-void"
     >
-      {/* Atmospheric fog layers */}
       <div className="fog-1 bg-hero-fog-green absolute inset-0 pointer-events-none" />
       <div className="fog-2 bg-hero-fog-purple absolute inset-0 pointer-events-none" />
       <div className="bg-hero-fog-bottom absolute inset-0 pointer-events-none" />
 
-      {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -83,7 +81,6 @@ export default function Hero() {
           ))}
         </motion.h1>
 
-        {/* Animated rule sweep under name */}
         <motion.div
           initial={{ scaleX: 0, opacity: 0 }}
           animate={{ scaleX: 1, opacity: 1 }}
@@ -91,7 +88,6 @@ export default function Hero() {
           className="origin-left h-px bg-brew w-full mb-6"
         />
 
-        {/* Typing animation */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -100,7 +96,7 @@ export default function Hero() {
         >
           <span className="text-brew mr-2">▮</span>
           <span>{displayed}</span>
-          <span className="cursor-blink ml-0.5 w-[2px] h-5 bg-brew inline-block" />
+          <span className="cursor-blink ml-0.5 w-0.5 h-5 bg-brew inline-block" />
         </motion.div>
 
         <motion.p
@@ -144,19 +140,6 @@ export default function Hero() {
           </a>
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 scroll-indicator"
-      >
-        <span className="font-mono text-xs text-mist uppercase tracking-widest">
-          Scroll
-        </span>
-        <div className="w-px h-10 bg-gradient-to-b from-brew to-transparent" />
-      </motion.div>
     </section>
   );
 }

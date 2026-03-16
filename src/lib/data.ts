@@ -11,7 +11,7 @@ export interface Project {
   description: string;
   tech: string[];
   liveUrl: string;
-  githubUrl: string;
+  githubUrl?: string;
 }
 
 export interface SkillGroup {
@@ -76,32 +76,30 @@ export const projects: Project[] = [
     description:
       "Production multiplayer gaming server scaling to 700+ registered players with 60+ daily active users. Configured 200+ Lua-based server resources including economy systems, housing mechanics, job frameworks, and law enforcement systems. Monetization through tiered subscriptions; 62+ new player registrations weekly.",
     tech: ["Lua", "MariaDB", "Server Infra", "Economy Systems"],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://cfx.re/join/jy9o9m",
   },
   {
     name: "Protecly",
     description:
       "Protecly is a cutting-edge cybersecurity platform dedicated to ensuring individuals and organizations can combat the growing threat of cyber attacks. The mission is to enhance cybersecurity awareness and provide reliable tools to identify and prevent phishing attempts, helping users stay one step ahead of threat actors",
     tech: ["JavaScript", "React", "Tailwind"],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://protecly.com/",
   },
   {
     name: "RAVN",
     description:
       "Mobile-first food discovery app in React Native using the Google Places API to help users find dining spots along routes or nearby. Features interactive map clustering, dynamic filters, animated modals, and real-time location services with one-tap navigation.",
     tech: ["React Native", "Google Places API", "Maps", "TypeScript"],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://ravn-one.vercel.app/",
+    githubUrl: "https://github.com/BaileyKH/ravn",
   },
   {
     name: "Nature Shot",
     description:
       "Fully responsive photography portfolio built with React and Tailwind CSS. Translated Figma designs into pixel-perfect, accessible UI components. Optimized with responsive images, lazy loading, and code-splitting — cutting page load times by over 40% and improving Lighthouse scores.",
     tech: ["React", "Tailwind CSS", "Figma", "Performance Optimization"],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://natureshot.vercel.app/",
+    githubUrl: "https://github.com/BaileyKH/nature-shot",
   },
 ];
 

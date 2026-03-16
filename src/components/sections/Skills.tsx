@@ -38,8 +38,6 @@ export default function Skills() {
 
       <div className="max-w-6xl mx-auto relative z-10">
         <SectionHeader eyebrow="02 — The Arsenal" title="Skills" />
-
-        {/* Scrolling marquee ticker — CSS mask fades edges */}
         <div className="marquee-container mb-16 overflow-hidden relative">
           <div className="marquee-track py-1">
             {ticker.map((skill, i) => (
@@ -52,8 +50,6 @@ export default function Skills() {
             ))}
           </div>
         </div>
-
-        {/* Skills — vertical category list */}
         <div className="space-y-0">
           {skillGroups.map((group, groupIndex) => (
             <motion.div

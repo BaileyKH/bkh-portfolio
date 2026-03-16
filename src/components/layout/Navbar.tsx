@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -72,7 +72,7 @@ export default function Navbar() {
             <li key={href}>
               <button
                 onClick={() => handleNavClick(href)}
-                className={`font-mono text-xs uppercase tracking-[0.15em] transition-colors hover:text-brew ${
+                className={`font-mono text-xs uppercase tracking-[0.15em] transition-colors hover:text-brew cursor-pointer ${
                   active === href.replace("#", "")
                     ? "text-brew"
                     : "text-mist"

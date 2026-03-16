@@ -7,13 +7,10 @@ import TimelineEntry from "@/components/ui/TimelineEntry";
 export default function Experience() {
   return (
     <section id="experience" className="py-28 px-6 bg-void relative overflow-hidden">
-      {/* Section number watermark */}
-
       <div className="max-w-6xl mx-auto relative z-10">
         <SectionHeader eyebrow="03 — Where I've Been" title="Experience" />
 
         <div className="relative">
-          {/* Center dashed vertical line — desktop only */}
           <div className="timeline-dashed hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px" />
 
           {experiences.map((exp, i) => (

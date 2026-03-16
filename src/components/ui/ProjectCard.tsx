@@ -16,9 +16,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
       whileHover={{ y: -4 }}
-      className="card-glow group relative bg-void border border-bone/10 rounded-lg p-6 flex flex-col gap-4 hover:border-brew/40"
+      className="card-glow group relative bg-void border border-bone/10 rounded-lg p-6 flex flex-col gap-4 hover:border-brew/40 overflow-hidden"
     >
-      {/* Top accent line */}
       <div className="absolute top-0 left-0 w-0 h-0.5 bg-brew group-hover:w-full transition-all duration-500" />
 
       <h3 className="font-cinzel text-xl font-bold text-bone">
@@ -28,8 +27,6 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       <p className="text-mist text-sm leading-relaxed flex-1">
         {project.description}
       </p>
-
-      {/* Tech stack */}
       <div className="flex flex-wrap gap-2">
         {project.tech.map((t) => (
           <span
@@ -40,23 +37,25 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           </span>
         ))}
       </div>
-
-      {/* Links */}
       <div className="flex gap-4 pt-2 border-t border-bone/10">
         <a
           href={project.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="font-mono text-xs text-mist hover:text-glow transition-colors flex items-center gap-1.5 group/link"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-brew group-hover/link:bg-glow transition-colors" />
           Live Demo
         </a>
-        <a
+        {project.githubUrl ? <a
           href={project.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="font-mono text-xs text-mist hover:text-glow transition-colors flex items-center gap-1.5 group/link"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-brew group-hover/link:bg-glow transition-colors" />
           GitHub
-        </a>
+        </a> : ""}
       </div>
     </motion.div>
   );

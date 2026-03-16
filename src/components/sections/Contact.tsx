@@ -32,12 +32,7 @@ export default function Contact() {
           <p className="font-cinzel text-2xl md:text-3xl text-bone leading-relaxed max-w-2xl mx-auto tracking-wide">
             Let&apos;s build something.
           </p>
-          {/* <p className="text-mist text-lg max-w-xl mx-auto leading-relaxed">
-            Whether it&apos;s a startup idea, a performance problem, or a project
-            that needs a steady hand — I&apos;m listening.
-          </p> */}
 
-          {/* Email with copy */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={copyEmail}
@@ -45,7 +40,6 @@ export default function Contact() {
                 copied ? "shadow-email-copied" : ""
               }`}
             >
-              {/* Drip underline */}
               <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-brew group-hover:w-full transition-all duration-500" />
               <span className="font-mono text-sm text-mist group-hover:text-brew transition-colors">
                 {personalInfo.email}
@@ -62,7 +56,6 @@ export default function Contact() {
             </button>
           </div>
 
-          {/* Social links */}
           <div className="flex items-center justify-center gap-6">
             <a
               href={personalInfo.linkedin}

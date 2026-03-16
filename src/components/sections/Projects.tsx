@@ -13,8 +13,6 @@ export default function Projects() {
 
       <div className="max-w-6xl mx-auto relative z-10">
         <SectionHeader eyebrow="04 — What I've Built" title="Projects" />
-
-        {/* Featured project — full width */}
         {featured && (
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -23,17 +21,13 @@ export default function Projects() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="card-glow-featured group relative bg-void border border-bone/10 rounded-lg p-8 mb-6 hover:border-brew/40 transition-colors overflow-hidden"
           >
-            {/* Top accent line */}
-            <div className="absolute top-0 left-0 w-0 h-[2px] bg-brew group-hover:w-full transition-all duration-500" />
-
-            {/* Ghost project name watermark */}
+            <div className="absolute top-0 left-0 w-0 h-0.5 bg-brew group-hover:w-full transition-all duration-500" />
             <span
-              className="text-watermark-md absolute bottom-[-0.15em] right-[-0.05em] pointer-events-none select-none font-cinzel font-black text-bone/[0.03] leading-none whitespace-nowrap"
+              className="text-watermark-md absolute bottom-[-0.15em] right-[-0.05em] pointer-events-none select-none font-cinzel font-black text-bone/3 leading-none whitespace-nowrap"
               aria-hidden
             >
               {featured.name}
             </span>
-
             <div className="grid md:grid-cols-[1fr_auto] gap-8 items-start relative z-10">
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
@@ -48,9 +42,7 @@ export default function Projects() {
                   {featured.description}
                 </p>
               </div>
-
-              {/* Meta column */}
-              <div className="md:min-w-[200px] space-y-4">
+              <div className="md:min-w-50 space-y-4">
                 <div>
                   <p className="font-mono text-xs text-mist/50 uppercase tracking-widest mb-2">
                     Tech Stack
@@ -69,25 +61,27 @@ export default function Projects() {
                 <div className="flex flex-col gap-2 border-t border-bone/10 pt-4">
                   <a
                     href={featured.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="font-mono text-xs text-mist hover:text-glow transition-colors flex items-center gap-2 group/link"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-brew group-hover/link:bg-glow transition-colors" />
                     Live Demo
                   </a>
-                  <a
+                  {featured.githubUrl ? <a
                     href={featured.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="font-mono text-xs text-mist hover:text-glow transition-colors flex items-center gap-2 group/link"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-brew group-hover/link:bg-glow transition-colors" />
                     GitHub
-                  </a>
+                  </a>: ""}
                 </div>
               </div>
             </div>
           </motion.div>
         )}
-
-        {/* Secondary projects — 3-col grid */}
         {rest.length > 0 && (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {rest.map((project, i) => (
