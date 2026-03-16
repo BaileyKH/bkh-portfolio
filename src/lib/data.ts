@@ -29,8 +29,8 @@ export const personalInfo = {
   linkedin: "https://linkedin.com/in/baileykh",
   github: "https://github.com/baileykh",
   website: "https://www.baileykh.dev",
-  bio: "Phoenix-based software engineer who has shipped production code at every scale — from calibrating autonomous vehicle sensors at Cruise, to running a multiplayer gaming server for 200+ players, to architecting startup frontends from scratch. I thrive in the dark corners of complex systems, finding elegant solutions where others find chaos.",
-  pullQuote: "\"From autonomous vehicles to living game worlds — I build systems that don't break when it matters most.\"",
+  bio: "Phoenix-based software engineer who has shipped production code at every scale: from calibrating autonomous vehicle sensors at Cruise, to running a multiplayer gaming server for 700+ players, to architecting startup frontends from scratch. I thrive in the dark corners of complex systems, finding elegant solutions where others find chaos.",
+  pullQuote: "From autonomous vehicles to living game worlds — I love to build cool",
 };
 
 export const experiences: Experience[] = [

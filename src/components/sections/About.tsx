@@ -42,7 +42,7 @@ export default function About() {
             className="relative border-l-2 border-brew pl-8 py-3"
           >
             <p className="font-cinzel text-xl md:text-2xl text-bone leading-relaxed tracking-wide">
-              {personalInfo.pullQuote}
+              "{personalInfo.pullQuote} <s>sh*t</s> projects."
             </p>
             <div className="absolute -left-[3px] top-0 w-1.5 h-full bg-brew opacity-30 blur-sm" />
           </motion.blockquote>
@@ -79,7 +79,7 @@ export default function About() {
         </div>
 
         {/* Stats — horizontal row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-bone/10 rounded-lg overflow-hidden border border-bone/10">
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-bone/10 rounded-lg overflow-hidden border border-bone/10">
           {stats.map(({ label, value }, i) => (
             <motion.div
               key={label}
@@ -97,7 +97,7 @@ export default function About() {
               </p>
             </motion.div>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

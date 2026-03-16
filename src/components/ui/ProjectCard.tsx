@@ -19,7 +19,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       className="card-glow group relative bg-void border border-bone/10 rounded-lg p-6 flex flex-col gap-4 hover:border-brew/40"
     >
       {/* Top accent line */}
-      <div className="absolute top-0 left-0 w-0 h-[2px] bg-brew group-hover:w-full transition-all duration-500" />
+      <div className="absolute top-0 left-0 w-0 h-0.5 bg-brew group-hover:w-full transition-all duration-500" />
 
       <h3 className="font-cinzel text-xl font-bold text-bone">
         {project.name}
