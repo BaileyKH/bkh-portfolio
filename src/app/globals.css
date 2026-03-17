@@ -125,6 +125,16 @@ body {
   }
 }
 
+@keyframes missing-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgba(107, 203, 119, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(107, 203, 119, 0.5);
+  }
+}
+
 @keyframes marquee-scroll {
   from {
     transform: translateX(0);
@@ -173,6 +183,12 @@ body {
 
 .glow-pulse {
   animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.missing-pulse {
+  animation: missing-pulse 3s ease-in-out infinite;
+  border-radius: 100%;
+  padding: 250px 50px;
 }
 
 .marquee-track {
